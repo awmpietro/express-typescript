@@ -1,0 +1,32 @@
+{
+  "name": "express-typescript",
+  "version": "1.0.0",
+  "description": "Boilerplate for a Node/Express application with Typescript",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch 'src/' --exec 'ts-node src/app.ts' -e ts",
+    "build": "rimraf dist/ && tsc",
+    "start": "yarn run build && node dist/app.js"
+  },
+  "author": "Arthur Mastropietro",
+  "license": "GNU",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.9",
+    "@types/http-errors": "^1.8.0",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^14.14.9",
+    "nodemon": "^2.0.6",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2"
+  }
+}
