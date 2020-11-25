@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:11.9
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_HOST: host.docker.internal
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: express-typescript-db
+    container_name: express-typescript-postgres

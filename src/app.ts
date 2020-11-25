@@ -6,6 +6,8 @@ import helmet from 'helmet';
 import path from 'path';
 import fs from 'fs';
 
+import { cors } from './libs';
+import { sequelize } from './sequelize';
 import * as Routes from './routes';
 
 class App {
@@ -27,18 +29,22 @@ class App {
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cookieParser());
     this.app.use(helmet());
+    this.app.use(cors);
     this.routes();
     this.init();
   }
 
   routes() {
-    this.app.use('/', Routes.Home);
+    this.app.use('/auth', Routes.Auth);
   }
 
   init() {
-    this.app.listen(this.port, () => {
-      console.log(`App listening on port ${this.port}`);
-    });
+    (async () => {
+      await sequelize.sync({ force: true });
+      this.app.listen(this.port, () => {
+        console.log(`App listening on port ${this.port}`);
+      });
+    })();
   }
 }
 
