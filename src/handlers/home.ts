@@ -1,13 +1,9 @@
-import express from "express";
+import express from 'express'
 
 class HomeHandler {
-  homePageHandler(
-    req: express.Request,
-    res: express.Response,
-    next: express.NextFunction
-  ) {
-    res.json("Home Page");
+  homePageHandler(req: express.Request, res: express.Response) {
+    res.json('Home Page')
   }
 }
 
-export default new HomeHandler();
+export default new HomeHandler()

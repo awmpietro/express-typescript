@@ -1,16 +1,16 @@
-import express from "express";
-import HomeHandler from "../handlers/home";
+import express from 'express'
+import HomeHandler from '../handlers/home'
 
 class Home {
-  static homeRouter: express.Router;
+  static homeRouter: express.Router
 
   static generateRouters() {
-    this.homeRouter = express.Router();
+    this.homeRouter = express.Router()
 
-    this.homeRouter.get("/", HomeHandler.homePageHandler);
+    this.homeRouter.get('/', HomeHandler.homePageHandler)
 
-    return this.homeRouter;
+    return this.homeRouter
   }
 }
 
-export default Home.generateRouters();
+export default Home.generateRouters()
